@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import PyPDF2
 import io
-import os
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter, A4
 from reportlab.pdfbase import pdfmetrics
@@ -28,9 +27,6 @@ def wrap(string:str, length: int) -> str:
 
 PdfWriter = PyPDF2.PdfWriter
 PdfReader = PyPDF2.PdfReader
-
-# setting work folder
-os.chdir('C:/Users/anton.ermolin/python_projects/start_one/')
 
 # getting current date
 nowaday = datetime.today().strftime('%d.%m.%Y')
