@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from PyPDF2 import PdfWriter, PdfReader
+import PyPDF2
 import io
 import os
 from reportlab.pdfgen import canvas
@@ -25,6 +25,9 @@ def wrap(string:str, length: int) -> str:
     pos = seek(string, length)
     return string[:pos:] + '\n' + wrap(string[pos::], length)
 
+
+PdfWriter = PyPDF2.PdfWriter
+PdfReader = PyPDF2.PdfReader
 
 # setting work folder
 os.chdir('C:/Users/anton.ermolin/python_projects/start_one/')
