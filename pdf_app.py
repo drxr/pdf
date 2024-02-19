@@ -57,7 +57,7 @@ if file is not None:
     if len(project_name) > 71:
         text_pos = 250
     else:
-        text_pos = 240
+        text_pos = 260
 
     # text of letter
     text_1 = f'Мастерская данных в лице Руководителя Мастерской данных Богданова Руслана Александровича благодарит вас за отличную работу над проектом «{project_name}» с {start_date} по {finish_date}.'
