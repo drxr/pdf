@@ -95,7 +95,7 @@ if file_two is not None:
         #text.setLeading(15)
         text.setTextOrigin(70, 360)
         text.textLines(wrap(text_1, 62))
-        text.setTextOrigin(70, 250)
+        text.setTextOrigin(70, text_pos)
         text.textLines(wrap(text_2, 62))
         can.drawText(text)
 
