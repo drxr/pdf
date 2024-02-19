@@ -81,6 +81,7 @@ if file_two is not None:
         can.setFont('YS Text Regular', 22)
         can.drawString(70, 400, student)
         can.setFont('YS Text Regular', 14)
+        can.setFillColor('white')
         can.drawString(485, 64, nowaday)
         
         # printing main text
@@ -89,7 +90,7 @@ if file_two is not None:
         #text.setLeading(15)
         text.setTextOrigin(70, 360)
         text.textLines(wrap(text_1, 62))
-        text.setTextOrigin(70, 270)
+        text.setTextOrigin(70, 250)
         text.textLines(wrap(text_2, 62))
         can.drawText(text)
 
