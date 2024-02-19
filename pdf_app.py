@@ -54,6 +54,10 @@ if file is not None:
     project_name = df.project_name[0]
     start_date = df.start_date[0].strftime('%d.%m.%Y')
     finish_date = df.finish_date[0].strftime('%d.%m.%Y')
+    if len(project_name) > 71:
+        text_pos = 250
+    else:
+        text_pos = 240
 
     # text of letter
     text_1 = f'Мастерская данных в лице Руководителя Мастерской данных Богданова Руслана Александровича благодарит вас за отличную работу над проектом «{project_name}» с {start_date} по {finish_date}.'
