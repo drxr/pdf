@@ -79,6 +79,7 @@ if file_two is not None:
 
         # printing name
         can.setFont('YS Text Regular', 22)
+        can.setFillColor('white')
         can.drawString(70, 400, student)
         can.setFont('YS Text Regular', 14)
         can.setFillColor('white')
