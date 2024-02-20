@@ -89,7 +89,7 @@ for student in students:
     can.drawString(70, 400, student)
     can.setFont('YS Text Regular', 14)
     can.setFillColor('white')
-    can.drawString(485, 64, nowaday)
+    can.drawString(485, 64, nowaday.strftime('%d.%m.%Y'))
         
     # printing main text
     text = can.beginText()
