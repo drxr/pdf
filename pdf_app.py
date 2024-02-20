@@ -45,7 +45,9 @@ st.text('')
 
 
 # making variables
-students = st.text_area('Введите имена и фамилии студентов с новой строки:', value=None).split('\n')
+students_raw = st.text_area('Введите имена и фамилии студентов с новой строки:', value=None)
+if students_raw is not None:
+    students = students_raw.split('\n')
 project_name = st.text_input('Введите название проекта:', value=None)
 start_date, finish_date = st.date_input('Введите даты начала и окончания проекта:', value='today', format='DD.MM.YYYY')
 if len(project_name) > 71:
