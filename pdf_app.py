@@ -67,7 +67,7 @@ if file is not None:
 st.text('')
 
 # pdf scheme
-with open('/sample_pdf.pdf', 'r') as file_two:
+with open('sample_pdf.pdf', 'r') as file_two:
     for student in students:
 
         # adding file name to pdf list
