@@ -66,10 +66,10 @@ if file is not None:
 # text split
 st.text('')
 
-# letter scheme upload button
+# pdf scheme
 file_two = st.file_uploader("Добавьте файл с шаблоном благодарственного письма", type=["pdf"])
 
-if file_two is not None:
+with open('/sample_pdf.pdf', 'r') as file_two:
     for student in students:
 
         # adding file name to pdf list
