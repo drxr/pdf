@@ -67,8 +67,6 @@ if file is not None:
 st.text('')
 
 # pdf scheme
-file_two = st.file_uploader("Добавьте файл с шаблоном благодарственного письма", type=["pdf"])
-
 with open('/sample_pdf.pdf', 'r') as file_two:
     for student in students:
 
