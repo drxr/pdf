@@ -67,58 +67,60 @@ text_2 = f'Отдельное спасибо за вашу вовлеченно�
 st.text('')
 
 # pdf scheme
-for student in students:
-
-    # adding file name to pdf list
-    pdf_list.append(student + '.pdf')
-
-    # setting up cyrillic and font 
-    packet = io.BytesIO()
-    can = canvas.Canvas(packet, pagesize=letter)
-    cyrenc = pdfmetrics.Encoding('utf8')
-    pdfmetrics.registerFont(TTFont('YS Text Regular', 'YS Text Regular Regular.ttf'))
-
-    # printing name
-    can.setFont('YS Text Regular', 22)
-    can.setFillColor('white')
-    can.drawString(70, 400, student)
-    can.setFont('YS Text Regular', 14)
-    can.setFillColor('white')
-    can.drawString(485, 64, nowaday.strftime('%d.%m.%Y'))
+if (project_name is not None) and (students is not None) and (start_date is not None):
+    
+    for student in students:
+    
+        # adding file name to pdf list
+        pdf_list.append(student + '.pdf')
+    
+        # setting up cyrillic and font 
+        packet = io.BytesIO()
+        can = canvas.Canvas(packet, pagesize=letter)
+        cyrenc = pdfmetrics.Encoding('utf8')
+        pdfmetrics.registerFont(TTFont('YS Text Regular', 'YS Text Regular Regular.ttf'))
+    
+        # printing name
+        can.setFont('YS Text Regular', 22)
+        can.setFillColor('white')
+        can.drawString(70, 400, student)
+        can.setFont('YS Text Regular', 14)
+        can.setFillColor('white')
+        can.drawString(485, 64, nowaday.strftime('%d.%m.%Y'))
+            
+        # printing main text
+        text = can.beginText()
+        text.setFont('YS Text Regular', 16)
+        #text.setLeading(15)
+        text.setTextOrigin(70, 360)
+        text.textLines(wrap(text_1, 62))
+        text.setTextOrigin(70, text_pos)
+        text.textLines(wrap(text_2, 62))
+        can.drawText(text)
         
-    # printing main text
-    text = can.beginText()
-    text.setFont('YS Text Regular', 16)
-    #text.setLeading(15)
-    text.setTextOrigin(70, 360)
-    text.textLines(wrap(text_1, 62))
-    text.setTextOrigin(70, text_pos)
-    text.textLines(wrap(text_2, 62))
-    can.drawText(text)
+        # saving
+        can.showPage()
+        can.save()
+        
+        # moving to the beggining of the string
+        packet.seek(0)
+        
+        # creating empty pdf
+        new_pdf = PdfReader(packet)
+        
+        # reading target pdf
+        existing_pdf = PdfReader('sample_pdf.pdf', "rb")
+        output = PdfWriter()
     
-    # saving
-    can.showPage()
-    can.save()
+        # merging pdfs
+        page = existing_pdf.pages[0]
+        page.merge_page(new_pdf.pages[0])
+        output.add_page(page)
     
-    # moving to the beggining of the string
-    packet.seek(0)
-    
-    # creating empty pdf
-    new_pdf = PdfReader(packet)
-    
-    # reading target pdf
-    existing_pdf = PdfReader('sample_pdf.pdf', "rb")
-    output = PdfWriter()
-
-    # merging pdfs
-    page = existing_pdf.pages[0]
-    page.merge_page(new_pdf.pages[0])
-    output.add_page(page)
-
-    # saving final pdf
-    output_stream = open(student + ".pdf", "wb")
-    output.write(output_stream)
-    output_stream.close()
+        # saving final pdf
+        output_stream = open(student + ".pdf", "wb")
+        output.write(output_stream)
+        output_stream.close()
 
 # creating zip archive and adding files from pdf list into it
 with zipfile.ZipFile('archive.zip', 'w') as myzip:
