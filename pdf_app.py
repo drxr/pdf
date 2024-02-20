@@ -53,6 +53,8 @@ if students_raw is not None:
     students = students_raw.split('\n')
 project_name = st.text_input('Введите название проекта:', value=None)
 start_date, finish_date = st.date_input('Введите даты начала и окончания проекта:', (current_date, nowaday), format='DD.MM.YYYY')
+start_date = start_date.strftime('%d.%m.%Y')
+finish_date = finish_date.strftime('%d.%m.%Y')
 if len(project_name) > 71:
     text_pos = 260
 else:
