@@ -54,10 +54,6 @@ finish_date = finish_date.strftime('%d.%m.%Y')
 students_raw = st.text_area('Введите имена и фамилии студентов с новой строки:', value=None)
 if students_raw is not None:
     students = students_raw.split('\n')
-if len(project_name) > 71:
-    text_pos = 260
-else:
-    text_pos = 270
     
 # text of letter
 text_1 = f'Мастерская данных в лице Руководителя Мастерской данных Богданова Руслана Александровича благодарит вас за отличную работу над проектом «{project_name}» с {start_date} по {finish_date}.'
@@ -68,7 +64,10 @@ st.text('')
 
 # pdf scheme
 if (project_name is not None) and (students is not None) and (start_date is not None):
-    
+    if len(project_name) > 71:
+        text_pos = 260
+    else:
+        text_pos = 270
     for student in students:
     
         # adding file name to pdf list
