@@ -8,6 +8,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from datetime import datetime
 import zipfile
+from tqdm import tqdm
 
 
 def seek(string: str, index: int) -> int:
@@ -133,7 +134,7 @@ if students_raw is not None:
 
 # creating zip archive and adding files from pdf list into it
 with zipfile.ZipFile('archive.zip', 'w') as myzip:
-    for file in pdf_list:
+    for file in tqdm(pdf_list):
         myzip.write(file)
 
 # button text
