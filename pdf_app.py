@@ -57,7 +57,7 @@ start_date = start_date.strftime('%d.%m.%Y')
 finish_date = finish_date.strftime('%d.%m.%Y')
 
 if start_date is not None:
-    st.write('Период проекта с {start_date} по {finish_date}')
+    st.write(f'Период проекта с {start_date} по {finish_date}')
 
 students_raw = st.text_area('Введите имена и фамилии студентов с новой строки:', value=None)
 
