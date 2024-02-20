@@ -30,8 +30,8 @@ PdfReader = PyPDF2.PdfReader
 
 # getting current date
 nowaday = datetime.today().strftime('%d.%m.%Y')
-now_month = nowaday.month
-now_year = nowaday.year
+now_month = datetime.today().month
+now_year = datetime.today().year
 current_date = datetime.date(now_year, now_month, 1)
 
 # list of pdf files to download
