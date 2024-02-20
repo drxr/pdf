@@ -43,25 +43,19 @@ st.text('Только после загрузки файла со студент
 st.text('требует переменные из файла со студентами.')
 st.text('')
 
-# students list upload button
-file = st.file_uploader("Добавьте файл с названием активности и списком участников", type=["xls", "xlsx"])
 
-if file is not None:
-    # reading file
-    df = pd.read_excel(file, header=0)
-    # making variables
-    students = df.student_name.tolist()
-    project_name = df.project_name[0]
-    start_date = df.start_date[0].strftime('%d.%m.%Y')
-    finish_date = df.finish_date[0].strftime('%d.%m.%Y')
-    if len(project_name) > 71:
-        text_pos = 260
-    else:
-        text_pos = 270
+# making variables
+students = st.text_area('Введите имена и фамилии студентов с новой строки:', value=None).split('\n')
+project_name = st.text_input('Введите название проекта:', value=None)
+start_date, finish_date = st.date_input('Введите даты начала и окончания проекта:', value='today', format='DD.MM.YYYY')
+if len(project_name) > 71:
+    text_pos = 260
+else:
+    text_pos = 270
 
-    # text of letter
-    text_1 = f'Мастерская данных в лице Руководителя Мастерской данных Богданова Руслана Александровича благодарит вас за отличную работу над проектом «{project_name}» с {start_date} по {finish_date}.'
-    text_2 = f'Отдельное спасибо за вашу вовлеченность, творческий подход к поиску оптимального решения и проявленный профессионализм.'
+# text of letter
+text_1 = f'Мастерская данных в лице Руководителя Мастерской данных Богданова Руслана Александровича благодарит вас за отличную работу над проектом «{project_name}» с {start_date} по {finish_date}.'
+text_2 = f'Отдельное спасибо за вашу вовлеченность, творческий подход к поиску оптимального решения и проявленный профессионализм.'
 
 # text split
 st.text('')
