@@ -48,12 +48,22 @@ st.text('')
 
 # making variables
 project_name = st.text_input('Введите название проекта:', value=None)
+
+if project_name is not None:
+    st.write(f'**Название проекта:** {project_name}')
+
 start_date, finish_date = st.date_input('Введите даты начала и окончания проекта:', (current_date, nowaday), format='DD.MM.YYYY')
 start_date = start_date.strftime('%d.%m.%Y')
 finish_date = finish_date.strftime('%d.%m.%Y')
+
+if start_date is not None:
+    st.write('Период проекта с {start_date} по {finish_date}')
+
 students_raw = st.text_area('Введите имена и фамилии студентов с новой строки:', value=None)
+
 if students_raw is not None:
     students = students_raw.split('\n')
+    st.write(f'Добавлено {len(students} студентов')
     
 # text of letter
 text_1 = f'Мастерская данных в лице Руководителя Мастерской данных Богданова Руслана Александровича благодарит вас за отличную работу над проектом «{project_name}» с {start_date} по {finish_date}.'
@@ -63,7 +73,7 @@ text_2 = f'Отдельное спасибо за вашу вовлеченно�
 st.text('')
 
 # pdf scheme
-if (project_name is not None) and (students is not None) and (start_date is not None):
+if students is not None:
     if len(project_name) > 71:
         text_pos = 260
     else:
