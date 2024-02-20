@@ -49,7 +49,7 @@ students_raw = st.text_area('Введите имена и фамилии сту�
 if students_raw is not None:
     students = students_raw.split('\n')
 project_name = st.text_input('Введите название проекта:', value=None)
-start_date, finish_date = st.date_input('Введите даты начала и окончания проекта:', value=None, format='DD.MM.YYYY')
+start_date, finish_date = st.date_input('Введите даты начала и окончания проекта:', (nowaday), datetime.date(2023, 1, 1), datetime.date(2026, 12, 31), format='DD.MM.YYYY')
 if len(project_name) > 71:
     text_pos = 260
 else:
