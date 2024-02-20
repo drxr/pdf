@@ -73,7 +73,7 @@ text_2 = f'Отдельное спасибо за вашу вовлеченно�
 st.text('')
 
 # pdf scheme
-if students is not None:
+if students_raw is not None:
     if len(project_name) > 71:
         text_pos = 260
     else:
