@@ -29,7 +29,7 @@ PdfWriter = PyPDF2.PdfWriter
 PdfReader = PyPDF2.PdfReader
 
 # getting current date
-nowaday = datetime.today().strftime('%d.%m.%Y')
+nowaday = datetime.today().date()
 now_month = datetime.today().month
 now_year = datetime.today().year
 current_date = datetime(now_year, now_month, 1).date()
