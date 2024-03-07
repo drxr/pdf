@@ -98,7 +98,7 @@ if students_raw is not None:
             
         # printing main text
         text = can.beginText()
-        text.setFont('YS Text Regular', 18)
+        text.setFont('YS Text Regular', 17)
         #text.setLeading(15)
         text.setTextOrigin(70, 360)
         text.textLines(wrap(text_1, 62))
