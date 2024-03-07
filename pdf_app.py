@@ -94,7 +94,7 @@ if students_raw is not None:
         can.drawString(70, 400, student)
         can.setFont('YS Text Regular', 16)
         can.setFillColor('white')
-        can.drawString(485, 64, nowaday.strftime('%d.%m.%Y'))
+        can.drawString(485, 64, nowaday.strftime('%d.%m.%Y'), 'г.')
             
         # printing main text
         text = can.beginText()
