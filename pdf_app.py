@@ -92,13 +92,13 @@ if students_raw is not None:
         can.setFont('YS Text Regular', 22)
         can.setFillColor('white')
         can.drawString(70, 400, student)
-        can.setFont('YS Text Regular', 14)
+        can.setFont('YS Text Regular', 18)
         can.setFillColor('white')
         can.drawString(485, 64, nowaday.strftime('%d.%m.%Y'))
             
         # printing main text
         text = can.beginText()
-        text.setFont('YS Text Regular', 16)
+        text.setFont('YS Text Regular', 18)
         #text.setLeading(15)
         text.setTextOrigin(70, 360)
         text.textLines(wrap(text_1, 62))
