@@ -103,7 +103,7 @@ if students_raw is not None:
         text.setTextOrigin(70, 360)
         text.textLines(wrap(text_1, 62))
         text.setTextOrigin(70, text_pos)
-        text.textLines(wrap(text_2, 62))
+        text.textLines(text_2, 62)
         can.drawText(text)
         
         # saving
